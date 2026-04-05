@@ -169,6 +169,7 @@ spec:
               cp -f /opt/xiaozhi-hotfix/websocket_server.py /opt/xiaozhi-esp32-server/core/websocket_server.py
               cp -f /opt/xiaozhi-hotfix/connection.py /opt/xiaozhi-esp32-server/core/connection.py
               cp -f /opt/xiaozhi-hotfix/intentHandler.py /opt/xiaozhi-esp32-server/core/handle/intentHandler.py
+              cp -f /opt/xiaozhi-hotfix/receiveAudioHandle.py /opt/xiaozhi-esp32-server/core/handle/receiveAudioHandle.py
               cp -f /opt/xiaozhi-hotfix/plugin_executor.py /opt/xiaozhi-esp32-server/core/providers/tools/server_plugins/plugin_executor.py
               cp -f /opt/xiaozhi-hotfix/openclaw___init__.py /opt/xiaozhi-esp32-server/core/openclaw/__init__.py
               cp -f /opt/xiaozhi-hotfix/bridge_client.py /opt/xiaozhi-esp32-server/core/openclaw/bridge_client.py

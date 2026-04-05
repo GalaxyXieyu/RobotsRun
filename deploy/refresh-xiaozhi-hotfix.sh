@@ -15,6 +15,7 @@ kubectl --kubeconfig "$KUBECONFIG_PATH" create configmap xiaozhi-server-hotfix \
   --from-file=websocket_server.py=xiaozhi-esp32-server/main/xiaozhi-server/core/websocket_server.py \
   --from-file=connection.py=xiaozhi-esp32-server/main/xiaozhi-server/core/connection.py \
   --from-file=intentHandler.py=xiaozhi-esp32-server/main/xiaozhi-server/core/handle/intentHandler.py \
+  --from-file=receiveAudioHandle.py=xiaozhi-esp32-server/main/xiaozhi-server/core/handle/receiveAudioHandle.py \
   --from-file=plugin_executor.py=xiaozhi-esp32-server/main/xiaozhi-server/core/providers/tools/server_plugins/plugin_executor.py \
   --from-file=openclaw___init__.py=xiaozhi-esp32-server/main/xiaozhi-server/core/openclaw/__init__.py \
   --from-file=bridge_client.py=xiaozhi-esp32-server/main/xiaozhi-server/core/openclaw/bridge_client.py \
