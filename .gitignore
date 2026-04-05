@@ -1,0 +1,21 @@
+# ESP-IDF toolchains and SDKs
+.espressif*/
+esp-idf*/
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+.clangd/
+
+# Temporary files
+*.swp
+*.swo
+*~
+.tmp/
+.cache/
+
+# Kubernetes config (optional, remove if you want to track it)
+kubeconfig.yaml
