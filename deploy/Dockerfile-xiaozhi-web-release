@@ -1,0 +1,23 @@
+FROM m.daocloud.io/docker.io/bellsoft/liberica-runtime-container:jre-21-glibc
+
+RUN apk update && \
+    apk add --no-cache --no-scripts \
+        nginx \
+        bash \
+        fontconfig \
+        ttf-dejavu \
+    && rm -rf /var/cache/apk/* \
+    && mkdir -p /run/nginx /var/log/nginx /var/tmp/nginx /etc/nginx/conf.d
+
+COPY xiaozhi-esp32-server/main/manager-web/public/generator/static/fonts/*.ttf /usr/share/fonts/
+RUN fc-cache -f -v
+
+COPY xiaozhi-esp32-server/docs/docker/nginx.conf /etc/nginx/nginx.conf
+COPY xiaozhi-esp32-server/main/manager-web/dist /usr/share/nginx/html
+COPY xiaozhi-esp32-server/main/manager-api/target/xiaozhi-esp32-api.jar /app/xiaozhi-esp32-api.jar
+
+EXPOSE 8002
+
+COPY xiaozhi-esp32-server/docs/docker/start.sh /start.sh
+RUN chmod +x /start.sh
+CMD ["/start.sh"]
