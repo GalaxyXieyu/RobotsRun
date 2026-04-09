@@ -180,6 +180,7 @@ spec:
               cp -f /opt/xiaozhi-hotfix/bridge_hub.py /opt/xiaozhi-esp32-server/core/openclaw/bridge_hub.py
               cp -f /opt/xiaozhi-hotfix/hub_session.py /opt/xiaozhi-esp32-server/core/openclaw/hub_session.py
               cp -f /opt/xiaozhi-hotfix/spoken_text.py /opt/xiaozhi-esp32-server/core/openclaw/spoken_text.py
+              cp -f /opt/xiaozhi-hotfix/voice_interrupt_store.py /opt/xiaozhi-esp32-server/core/openclaw/voice_interrupt_store.py
               cp -f /opt/xiaozhi-hotfix/openclaw_admin_handler.py /opt/xiaozhi-esp32-server/core/api/openclaw_admin_handler.py
               cp -f /opt/xiaozhi-hotfix/openclaw_bind_peer_agent.py /opt/xiaozhi-esp32-server/plugins_func/functions/openclaw_bind_peer_agent.py
               exec python /opt/xiaozhi-esp32-server/app.py

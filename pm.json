@@ -1,0 +1,63 @@
+{
+  "project": {
+    "name": "智能喵喵",
+    "group_id": "oc_ab15f29b14e2c81c43f15428b609bd52",
+    "agent": "smart-miaomiao"
+  },
+  "repo_root": "/Users/galaxyxieyu/ensoai/repos/github/GalaxyXieyu/RobotsRun",
+  "task": {
+    "backend": "feishu",
+    "tasklist_name": "智能喵喵",
+    "prefix": "T",
+    "kind": "task",
+    "tasklist_guid": "2ee2ac91-a13f-46d9-9490-a723e98c8c03",
+    "tasklist_url": "https://applink.feishu.cn/client/todo/task_list?guid=2ee2ac91-a13f-46d9-9490-a723e98c8c03",
+    "default_assignee": "ou_48f5cfd849bd8c34385e9d915c47275a"
+  },
+  "doc": {
+    "backend": "feishu",
+    "folder_name": "智能喵喵",
+    "project_title": "PROJECT",
+    "requirements_title": "REQUIREMENTS",
+    "roadmap_title": "ROADMAP",
+    "state_title": "STATE",
+    "dry_run": false,
+    "folder_token": "X0c7fRUQklWRIVdAHkwcPsLQnxd",
+    "folder_url": "https://xcn8w8gj1s4u.feishu.cn/drive/folder/X0c7fRUQklWRIVdAHkwcPsLQnxd",
+    "folder_created": true,
+    "folder_status": "created",
+    "project": "PROJECT",
+    "requirements": "REQUIREMENTS",
+    "roadmap": "ROADMAP",
+    "state": "STATE",
+    "project_doc_token": "Brp3dY5C1oUnfExh2GgcWz4ynYc",
+    "requirements_doc_token": "P8Ccdhqozoguu8xH8Rrc6kyfnP4",
+    "roadmap_doc_token": "ITjjdP2aroqaKlx9W2NcLu4XnKh",
+    "state_doc_token": "AjGbdDaHPoh0y1xRxascwxBZnvq",
+    "project_doc_url": "https://www.feishu.cn/docx/Brp3dY5C1oUnfExh2GgcWz4ynYc",
+    "requirements_doc_url": "https://www.feishu.cn/docx/P8Ccdhqozoguu8xH8Rrc6kyfnP4",
+    "roadmap_doc_url": "https://www.feishu.cn/docx/ITjjdP2aroqaKlx9W2NcLu4XnKh",
+    "state_doc_url": "https://www.feishu.cn/docx/AjGbdDaHPoh0y1xRxascwxBZnvq",
+    "project_doc_status": "created",
+    "requirements_doc_status": "created",
+    "roadmap_doc_status": "created",
+    "state_doc_status": "created"
+  },
+  "coder": {
+    "backend": "acp",
+    "agent_id": "codex",
+    "timeout": 900,
+    "thinking": "high",
+    "session_key": "main"
+  },
+  "tasklist_name": "智能喵喵",
+  "task_prefix": "T",
+  "kind": "task",
+  "description_requirements": [
+    "以 task/doc 为主，不再依赖本地 task/context/state 文件。",
+    "进度默认写评论，验收证据优先回填附件或评论。"
+  ],
+  "repo": {
+    "root": "/Users/galaxyxieyu/ensoai/repos/github/GalaxyXieyu/RobotsRun"
+  }
+}

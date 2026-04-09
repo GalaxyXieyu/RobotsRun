@@ -1,0 +1,110 @@
+{
+  "generated_at": "2026-04-07T11:28:12+08:00",
+  "project": {
+    "name": "智能喵喵",
+    "repo_root": "/Users/galaxyxieyu/ensoai/repos/github/GalaxyXieyu/RobotsRun",
+    "config_path": "/Users/galaxyxieyu/ensoai/repos/github/GalaxyXieyu/RobotsRun/pm.json",
+    "tasklist_name": "智能喵喵",
+    "tasklist_guid": "2ee2ac91-a13f-46d9-9490-a723e98c8c03",
+    "task_prefix": "T",
+    "kind": "task",
+    "task_backend": "feishu",
+    "doc_backend": "feishu"
+  },
+  "repo_scan": {
+    "root": "/Users/galaxyxieyu/ensoai/repos/github/GalaxyXieyu/RobotsRun",
+    "exists": true,
+    "name": "RobotsRun",
+    "markers": {
+      "git": true,
+      "package_json": false,
+      "pnpm_lock": false,
+      "yarn_lock": false,
+      "npm_lock": false,
+      "pyproject": false,
+      "requirements_txt": false,
+      "go_mod": false,
+      "cargo_toml": false,
+      "miniapp_app_json": false,
+      "miniapp_project_config": false,
+      "src_dir": false,
+      "pages_dir": false,
+      "components_dir": false
+    },
+    "package_manager": "unknown",
+    "framework_hints": []
+  },
+  "bootstrap": {
+    "project_mode": "brownfield",
+    "recommended_action": "map-codebase",
+    "task_backend": "feishu",
+    "doc_backend": "feishu",
+    "doc_folder_name": "智能喵喵",
+    "doc_folder_token": "X0c7fRUQklWRIVdAHkwcPsLQnxd",
+    "doc_folder_url": "https://xcn8w8gj1s4u.feishu.cn/drive/folder/X0c7fRUQklWRIVdAHkwcPsLQnxd",
+    "project_doc_token": "Brp3dY5C1oUnfExh2GgcWz4ynYc",
+    "project_doc_url": "https://www.feishu.cn/docx/Brp3dY5C1oUnfExh2GgcWz4ynYc",
+    "requirements_doc_token": "P8Ccdhqozoguu8xH8Rrc6kyfnP4",
+    "requirements_doc_url": "https://www.feishu.cn/docx/P8Ccdhqozoguu8xH8Rrc6kyfnP4",
+    "roadmap_doc_token": "ITjjdP2aroqaKlx9W2NcLu4XnKh",
+    "roadmap_doc_url": "https://www.feishu.cn/docx/ITjjdP2aroqaKlx9W2NcLu4XnKh",
+    "state_doc_token": "AjGbdDaHPoh0y1xRxascwxBZnvq",
+    "state_doc_url": "https://www.feishu.cn/docx/AjGbdDaHPoh0y1xRxascwxBZnvq",
+    "notes": [
+      "brownfield 项目优先做 map-codebase，再补项目/路线图/状态文档。",
+      "greenfield 项目优先做 new-project，再进入任务拆解。",
+      "当前环境 task/doc 后端实际是 Feishu，但 PM 对外使用通用 task/doc 语义。"
+    ]
+  },
+  "gsd": {
+    "enabled": false,
+    "docs": {},
+    "research_dir": "",
+    "planning_root": "",
+    "detected_signals": [],
+    "summaries": {}
+  },
+  "current_task": {
+    "task_id": "T1",
+    "summary": "[T1] GSD 架构初始化并同步飞书文档",
+    "status": "todo",
+    "guid": "2fd7498f-09b5-4a9d-acc0-a7b4637c6841",
+    "url": "https://applink.feishu.cn/client/todo/detail?guid=2fd7498f-09b5-4a9d-acc0-a7b4637c6841&suite_entity_num=t100156",
+    "description": "任务编号：T1\n创建时间：2026-04-07 11:28:00 CST\n类型：task\nRepo：/Users/galaxyxieyu/ensoai/repos/github/GalaxyXieyu/RobotsRun\n\n需求：\n使用 Codex 基于 GSD skills 对 RobotsRun 项目做架构初始化（brownfield map-codebase / .planning 初始化），在不影响现有未提交改动的前提下梳理项目结构、阶段和关键模块，并把结果同步到智能喵喵项目的飞书文档（至少 PROJECT/STATE，必要时补 REQUIREMENTS/ROADMAP）。\n\n执行要求：\n- 以 task/doc 为主，不再依赖本地 task/context/state 文件。\n- 进度默认写评论，验收证据优先回填附件或评论。",
+    "updated_at": "1775532480579",
+    "completed_at": "0",
+    "attachments": [],
+    "tasklists": [
+      {
+        "section_guid": "35e4523c-3977-c125-dec8-485dd4b3cfad",
+        "tasklist_guid": "2ee2ac91-a13f-46d9-9490-a723e98c8c03"
+      }
+    ]
+  },
+  "next_task": {
+    "task_id": "T1",
+    "summary": "[T1] GSD 架构初始化并同步飞书文档",
+    "status": "",
+    "guid": "2fd7498f-09b5-4a9d-acc0-a7b4637c6841",
+    "url": "",
+    "updated_at": "",
+    "created_at": ""
+  },
+  "recent_comments": [],
+  "inputs": {
+    "config": "/Users/galaxyxieyu/ensoai/repos/github/GalaxyXieyu/RobotsRun/pm.json",
+    "context_path": "/Users/galaxyxieyu/ensoai/repos/github/GalaxyXieyu/RobotsRun/.pm/current-context.json",
+    "bootstrap_path": "/Users/galaxyxieyu/ensoai/repos/github/GalaxyXieyu/RobotsRun/.pm/bootstrap.json",
+    "plan_path": "/Users/galaxyxieyu/ensoai/repos/github/GalaxyXieyu/RobotsRun/.pm/plan-context.json",
+    "refine_path": "/Users/galaxyxieyu/ensoai/repos/github/GalaxyXieyu/RobotsRun/.pm/refine-context.json"
+  },
+  "recommended_flow": [
+    "Run brownfield mapping before broad code changes; build task/doc understanding first.",
+    "Implement the current task first and update progress through pm when done."
+  ],
+  "required_reads": [
+    "pm.json",
+    ".pm/current-context.json",
+    ".pm/bootstrap.json"
+  ]
+}

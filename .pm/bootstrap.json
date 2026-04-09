@@ -1,0 +1,60 @@
+{
+  "generated_at": "2026-04-08T19:57:55+08:00",
+  "project": {
+    "name": "智能喵喵",
+    "repo_root": "/Users/galaxyxieyu/ensoai/repos/github/GalaxyXieyu/RobotsRun",
+    "config_path": "/Users/galaxyxieyu/ensoai/repos/github/GalaxyXieyu/RobotsRun/pm.json",
+    "tasklist_name": "智能喵喵",
+    "tasklist_guid": "2ee2ac91-a13f-46d9-9490-a723e98c8c03",
+    "task_prefix": "T",
+    "kind": "task",
+    "task_backend": "feishu",
+    "doc_backend": "feishu"
+  },
+  "bootstrap": {
+    "project_mode": "brownfield",
+    "recommended_action": "map-codebase",
+    "task_backend": "feishu",
+    "doc_backend": "feishu",
+    "doc_folder_name": "智能喵喵",
+    "doc_folder_token": "X0c7fRUQklWRIVdAHkwcPsLQnxd",
+    "doc_folder_url": "https://xcn8w8gj1s4u.feishu.cn/drive/folder/X0c7fRUQklWRIVdAHkwcPsLQnxd",
+    "project_doc_token": "Brp3dY5C1oUnfExh2GgcWz4ynYc",
+    "project_doc_url": "https://www.feishu.cn/docx/Brp3dY5C1oUnfExh2GgcWz4ynYc",
+    "requirements_doc_token": "P8Ccdhqozoguu8xH8Rrc6kyfnP4",
+    "requirements_doc_url": "https://www.feishu.cn/docx/P8Ccdhqozoguu8xH8Rrc6kyfnP4",
+    "roadmap_doc_token": "ITjjdP2aroqaKlx9W2NcLu4XnKh",
+    "roadmap_doc_url": "https://www.feishu.cn/docx/ITjjdP2aroqaKlx9W2NcLu4XnKh",
+    "state_doc_token": "AjGbdDaHPoh0y1xRxascwxBZnvq",
+    "state_doc_url": "https://www.feishu.cn/docx/AjGbdDaHPoh0y1xRxascwxBZnvq",
+    "notes": [
+      "brownfield 项目优先做 map-codebase，再补项目/路线图/状态文档。",
+      "greenfield 项目优先做 new-project，再进入任务拆解。",
+      "当前 task backend=feishu，doc backend=feishu。"
+    ]
+  },
+  "gsd": {
+    "enabled": true,
+    "docs": {
+      "project": "/Users/galaxyxieyu/ensoai/repos/github/GalaxyXieyu/RobotsRun/.planning/PROJECT.md",
+      "requirements": "/Users/galaxyxieyu/ensoai/repos/github/GalaxyXieyu/RobotsRun/.planning/REQUIREMENTS.md",
+      "roadmap": "/Users/galaxyxieyu/ensoai/repos/github/GalaxyXieyu/RobotsRun/.planning/ROADMAP.md",
+      "state": "/Users/galaxyxieyu/ensoai/repos/github/GalaxyXieyu/RobotsRun/.planning/STATE.md"
+    },
+    "research_dir": "",
+    "planning_root": "/Users/galaxyxieyu/ensoai/repos/github/GalaxyXieyu/RobotsRun/.planning",
+    "detected_signals": [
+      ".planning",
+      ".planning/PROJECT.md",
+      ".planning/REQUIREMENTS.md",
+      ".planning/ROADMAP.md",
+      ".planning/STATE.md"
+    ],
+    "summaries": {
+      "project": "# 智能喵喵 / RobotsRun\n\n## What This Is\n\n这是一个 brownfield 集成工作区，用来把 `xiaozhi-esp32` 设备固件、`xiaozhi-esp32-server` 服务端/管理端，以及 `openclaw-xiaozhi` OpenClaw 桥接插件组合成一个可部署、可演进的整体系统。根仓本身主要承载部署覆盖、架构梳理、任务/文档同步，而不是替代三个子仓的实现逻辑。\n\n## Core Value\n\n在不破坏各子仓独立演进的前提下，持续保持“设备 → 服务端 → OpenClaw Agent”这条集成链路可理解、可部署、可验证。\n\n## Requirements\n\n### Validated\n\n- ✓ 设备端已具备音频交互、OTA、WebSocket/MQTT、设备侧 MCP 能力 —— 基于 `xiaozhi-esp32/` 现有实现推断。\n- ✓ 服务端已包含 Python 运行时、Spring Boot 管理 API、Web 管理台、uni-app 移动端 —— 基于 `xiaozhi-esp32-server/main/` 现有结构推断。\n- ✓ OpenClaw 桥接插件与安装 CLI 已存在，可通过服务端桥接接口接入 Agent 运行时 —— 基于 `openclaw-xiaozhi/` 现有实现推断。\n- ✓ 根仓已具备 Sealos 部署能力，但运行时真相已按服务拆分：`xiaozhi-server` 仍依赖 hotfix overlay，`xiaozhi-web` 已切到镜像内 `/start.sh` 启动 —— 基于 `deploy/`、workflow 与 `docs/docker/start.sh` 现有实现推断。\n\n### Active\n\n- [ ] ARCH-01：为根仓建立可持续维护的 `.planning` / PM / 飞书架构真相文档。\n- [ ] ARCH-02：明确三个子仓与 `deploy/` 的模块边界、依赖关系与集成契约。\n- [ ] ARCH-03：给出后续集成治理的阶段路线图与当前阶段建议。\n\n### Out of Scope\n\n- 在本次初始化中重构任一子仓内部实现 —— 会干扰现有未提交改动与上游边界。\n- 把三个子仓合并成单一 monorepo —— 当前真实结构就是 submodule 聚合，应先治理契约而非改组织方式。\n- 处理大体积历史资产或做仓库瘦身 —— `REPO_SIZE_AUDIT.md` 已记录，但不属于本任务主线。\n\n## Context\n\n- 根仓 `README.md` 目前极简，架构知识主要分散在各子仓 README、部署清单和脚本里。\n- `.pm/` 已完成 brownfield bootstrap，推荐动作明确为 `map-codebase`。\n- `.planning/codebase/` 现在已补齐 deploy、bridge、统一 Agent 模型、管理面与语音打断契约文档，不再只有初始化骨架。\n- `deploy/xiaozhi-sealos.yaml` 与 `deploy/refresh-xiaozhi-hotfix.sh` 仍是 `xiaozhi-server` runtime 的关键集成入口；但 `xiaozhi-web` 的生产真相已经改成镜像构建 + `/start.sh` 启动。\n- `xiaozhi-esp32-server` 的后台与 runtime 侧已经形成 OpenClaw 管理闭环：`manager-web` 具备 channel 设置、setup guide、inventory 同步、统一 Agent 类型化绑定、direct chat 与 clear session；`ma\n...",
+      "requirements": "# Requirements: 智能喵喵 / RobotsRun\n\n## Current Milestone\n\n**v0.1 Architecture Baseline**\n\n目标：把根仓从“仅靠人工记忆的集成仓”提升为“有清晰架构真相、可回写 PM/飞书、可继续进入 GSD 阶段规划的工作区”。\n\n## v0.1 Requirements\n\n### Integration Baseline\n\n- [ ] **INTEG-01**：维护者能够从根仓文档快速理解 `xiaozhi-esp32`、`xiaozhi-esp32-server`、`openclaw-xiaozhi` 各自职责与边界。\n- [ ] **INTEG-02**：维护者能够追踪“设备 → 服务端 → OpenClaw Agent”的主链路与对应部署入口。\n- [ ] **INTEG-03**：维护者能够识别 `deploy/` 在生产拓扑中的作用，而不是把它视为普通附属脚本目录。\n\n### Planning & Working Memory\n\n- [ ] **PLAN-01**：根仓存在 `.planning/PROJECT.md`、`.planning/ROADMAP.md`、`.planning/STATE.md`，并可作为后续 GSD 工作流输入。\n- [ ] **PLAN-02**：当前阶段、下一步建议、主要风险点能够从 `STATE.md` 直接读取。\n\n### PM / Documentation Sync\n\n- [ ] **DOC-01**：本次 brownfield 初始化结果能够同步到飞书 `PROJECT` 与 `STATE` 文档。\n- [ ] **DOC-02**：T1 任务在执行过程中能收到阶段性进度回推，而不是只在结束时补结果。\n\n### Admin Surface\n\n- [ ] **ADM-01**：管理前端可查看并操作 OpenClaw 相关关键能力，而不是只停留在后台或部署侧配置。\n- [ ] **ADM-02**：明确 `manager-web` 与 `manager-mobile` 在 OpenClaw 控制、MCP 暴露和调试能力上的边界，至少 Web 端具备完整控制面。\n- [ ] **ADM-03**：后台模型需要以统一 `Agent` 作为顶层业务对象，并通过 `agent_type = native | openclaw` 区分实现来源，而不是把 OpenClaw 作为平行的第二套智能体管理流。\n- [ ] **ADM-04**：管理前端需要复用统一 Agent 创建/编辑流程，共享名称、音色等公共配置，并按类型动态展示专属字段；`openclaw` 类型不应暴露本地 prompt 编辑心智，其 runtime/account/agent 选择应来自已绑定的 OpenClaw channel，而不是手工输入。\n\n### Deployment Truth\n\n- [ ] **OPS-WEB-01**：`xiaozhi-web` 生产部署必须以镜像内 `/start.sh` 为单一启动真相，不再依赖 PVC hotfix 覆盖旧 jar。\n- [ ] **OPS-WEB-02**：当 `manager-api/**`、`manager-web/**`、`docs/docker/start.sh` 等后台管理面相关路径变更时，生产部署应自动重新构建并 rollout。\n\n## Deferred / Next Milestone\n\n- [ ] **OPS-01**：建立根仓级别的集成验证清单或 smoke 流程，覆盖 deploy overlay 与桥接路径。\n- [ ] **OPS-02**：建立 submodule revision\n...",
+      "roadmap": "# Roadmap: 智能喵喵 / RobotsRun\n\n## Overview\n\n这是一个 brownfield 集成工作区，路线图先解决架构可见性、集成契约和验证基线，再进入更高风险的桥接强化与设备回归工作。到 2026-04-08 为止，Phase 2 / 02.1 已完成；Phase 3 虽然已有交付，但 production smoke 暴露出连通性与信息架构问题，因此追加一轮收口计划后才进入设备侧回归。\n\n## Phases\n\n**Phase Numbering:**\n- 整数 phase 表示主线治理阶段\n- 如后续出现高优先级插单，可在整数之间插入小数 phase\n\n- [ ] **Phase 1: Integration Baseline & Docs** - 固化根仓架构真相、GSD 资产和 PM/飞书同步机制\n- [x] **Phase 2: Deploy & Bridge Contract Hardening** - 校准 deploy overlay、OpenClaw bridge、运行时入口的一致性\n- [x] **Phase 02.1: Agent 统一模型与 OpenClaw 类型化重定义** - 先定义统一 Agent 模型、`native/openclaw` 类型分流与后台映射关系，再进入前端实现\n- [ ] **Phase 3: Agent Admin Surface Alignment** - 基于统一 Agent 模型，把 OpenClaw 类型智能体收敛进现有前端管理流，并厘清 Web / Mobile 分工\n- [ ] **Phase 4: Device Onboarding & OTA Validation** - 回到设备端，验证固件接入、OTA 与协议链路的闭环\n\n## Phase Details\n\n### Phase 1: Integration Baseline & Docs\n**Goal**: 根仓具备可复用的架构真相文档、GSD 核心资产与 PM/飞书同步基线\n**Depends on**: Nothing (first phase)\n**Requirements**: [INTEG-01, INTEG-03, PLAN-01, PLAN-02, DOC-01, DOC-02, OPS-03]\n**Success Criteria** (what must be TRUE):\n  1. 维护者能从 `.planning/` 读懂根仓为何存在、三子仓如何协作、`deploy/` 扮演什么角色\n  2. `PROJECT` 与 `STATE` 已同步到飞书，T1 留下阶段性回推记录\n  3. 后续 GSD 工作流能以这些文档为输入继续规划\n**Plans**: 3 plans\n\nPlans:\n- [x] 01-01: 完成 brownfield map-codebase 文档与 `.planning` 核心资产初始化\n- [ ] 01-02: 补根仓 README / 维护者入口说明（可在本 phase 内择机完成）\n\n### Phase 2: Deploy & Bridge Contract Hardening\n**Goal**: 明确 deploy overlay、服务端桥接接口和 OpenClaw 插件的契约，降低版本漂移风险\n**Depends on**: Phase 1\n**Requirements**: [INTEG-02, OPS-01, OPS-02]\n**Success Criteria** (what must be TRUE):\n  1. `/xiaozhi/v1/`、`/xiaozhi/ota/`、`/openclaw/bridge/ws`、`/admin/ope\n...",
+      "state": "# Project State\n\n## Project Reference\n\nSee: `.planning/PROJECT.md` (updated 2026-04-08)\n\n**Core value:** 在不破坏各子仓独立演进的前提下，持续保持“设备 → 服务端 → OpenClaw Agent”集成链路可理解、可部署、可验证。\n**Current focus:** reopen Phase 3 for production connectivity recovery and Channel-first IA correction before Phase 4 device validation\n\n## Current Position\n\nCurrent Phase: 3\nCurrent Phase Name: Agent Admin Surface Alignment\nTotal Phases: 5\nCurrent Plan: `03-03` production connectivity recovery + Channel-first IA correction\nTotal Plans in Phase: 3\nStatus: 02-01 / 02-02 / 02.1-01 / 03-01 / 03-02 已落地，但 03 production smoke 失败，现追加 03-03 修复真实链路与信息架构\nLast Activity: 2026-04-08 — reopened Phase 3 after production smoke exposed browser-direct runtime access\nLast Activity Description: 已确认 `OpenClawManagement.vue` 仍由浏览器直连 runtime `baseUrl` 拉 inventory，导致公网环境无法访问集群内网 `xiaozhi-server`；当前计划先收回 manager-api 代理，再围绕 Channel -> inventory -> binding -> debug 重构页面\nProgress: 78%\n\n## Performance Metrics\n\n**Velocity:**\n- Total plans completed: 5\n- Average duration: -\n- Total execution time: -\n\n**By Phase:**\n\n| Phase | Plans | Total | Avg/Plan |\n|-------|-------|-------|----------|\n| 1 | 0 | - | - |\n| 2 | 2 | - | - |\n| 02.1 | 1 | - | - |\n| 3 | 3 | - | - |\n\n**Recent Trend:**\n- Last 5 plans: 02-02 completed, 02.1-01 completed, 03-01 completed, 03-02 completed, 03-03 opened\n- Trend: OpenClaw 管理面进入“交付后回收真实 smoke 缺口”阶段，先修 production connectivity 和 operator flow，再进入设备侧回归\n\n## Decisions Made\n\n| Phase | Summary | Rationale |\n|-------|---------|-----------|\n| 1 | 根仓保持集成工作区定位 | 保留 submodule 边界，避免在初始化任务中越界修改子仓 |\n| 1 | 将 `deploy/` 视为一等模块边界 | 实际生\n..."
+    }
+  }
+}

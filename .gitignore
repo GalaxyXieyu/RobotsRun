@@ -16,6 +16,7 @@ esp-idf*/
 *~
 .tmp/
 .cache/
+.local/
 
 # Kubernetes config (optional, remove if you want to track it)
 kubeconfig.yaml

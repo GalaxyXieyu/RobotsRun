@@ -26,6 +26,7 @@ kubectl --kubeconfig "$KUBECONFIG_PATH" create configmap xiaozhi-server-hotfix \
   --from-file=bridge_hub.py=xiaozhi-esp32-server/main/xiaozhi-server/core/openclaw/bridge_hub.py \
   --from-file=hub_session.py=xiaozhi-esp32-server/main/xiaozhi-server/core/openclaw/hub_session.py \
   --from-file=spoken_text.py=xiaozhi-esp32-server/main/xiaozhi-server/core/openclaw/spoken_text.py \
+  --from-file=voice_interrupt_store.py=xiaozhi-esp32-server/main/xiaozhi-server/core/openclaw/voice_interrupt_store.py \
   --from-file=openclaw_admin_handler.py=xiaozhi-esp32-server/main/xiaozhi-server/core/api/openclaw_admin_handler.py \
   --from-file=openclaw_bind_peer_agent.py=xiaozhi-esp32-server/main/xiaozhi-server/plugins_func/functions/openclaw_bind_peer_agent.py \
   --dry-run=client -o yaml | kubectl --kubeconfig "$KUBECONFIG_PATH" apply --validate=false -f -
