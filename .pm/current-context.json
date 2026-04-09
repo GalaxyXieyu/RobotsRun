@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-08T19:57:55+08:00",
+  "generated_at": "2026-04-09T11:23:02+08:00",
   "project": {
     "name": "智能喵喵",
     "repo_root": "/Users/galaxyxieyu/ensoai/repos/github/GalaxyXieyu/RobotsRun",
@@ -90,7 +90,7 @@
       "project": "# 智能喵喵 / RobotsRun\n\n## What This Is\n\n这是一个 brownfield 集成工作区，用来把 `xiaozhi-esp32` 设备固件、`xiaozhi-esp32-server` 服务端/管理端，以及 `openclaw-xiaozhi` OpenClaw 桥接插件组合成一个可部署、可演进的整体系统。根仓本身主要承载部署覆盖、架构梳理、任务/文档同步，而不是替代三个子仓的实现逻辑。\n\n## Core Value\n\n在不破坏各子仓独立演进的前提下，持续保持“设备 → 服务端 → OpenClaw Agent”这条集成链路可理解、可部署、可验证。\n\n## Requirements\n\n### Validated\n\n- ✓ 设备端已具备音频交互、OTA、WebSocket/MQTT、设备侧 MCP 能力 —— 基于 `xiaozhi-esp32/` 现有实现推断。\n- ✓ 服务端已包含 Python 运行时、Spring Boot 管理 API、Web 管理台、uni-app 移动端 —— 基于 `xiaozhi-esp32-server/main/` 现有结构推断。\n- ✓ OpenClaw 桥接插件与安装 CLI 已存在，可通过服务端桥接接口接入 Agent 运行时 —— 基于 `openclaw-xiaozhi/` 现有实现推断。\n- ✓ 根仓已具备 Sealos 部署能力，但运行时真相已按服务拆分：`xiaozhi-server` 仍依赖 hotfix overlay，`xiaozhi-web` 已切到镜像内 `/start.sh` 启动 —— 基于 `deploy/`、workflow 与 `docs/docker/start.sh` 现有实现推断。\n\n### Active\n\n- [ ] ARCH-01：为根仓建立可持续维护的 `.planning` / PM / 飞书架构真相文档。\n- [ ] ARCH-02：明确三个子仓与 `deploy/` 的模块边界、依赖关系与集成契约。\n- [ ] ARCH-03：给出后续集成治理的阶段路线图与当前阶段建议。\n\n### Out of Scope\n\n- 在本次初始化中重构任一子仓内部实现 —— 会干扰现有未提交改动与上游边界。\n- 把三个子仓合并成单一 monorepo —— 当前真实结构就是 submodule 聚合，应先治理契约而非改组织方式。\n- 处理大体积历史资产或做仓库瘦身 —— `REPO_SIZE_AUDIT.md` 已记录，但不属于本任务主线。\n\n## Context\n\n- 根仓 `README.md` 目前极简，架构知识主要分散在各子仓 README、部署清单和脚本里。\n- `.pm/` 已完成 brownfield bootstrap，推荐动作明确为 `map-codebase`。\n- `.planning/codebase/` 现在已补齐 deploy、bridge、统一 Agent 模型、管理面与语音打断契约文档，不再只有初始化骨架。\n- `deploy/xiaozhi-sealos.yaml` 与 `deploy/refresh-xiaozhi-hotfix.sh` 仍是 `xiaozhi-server` runtime 的关键集成入口；但 `xiaozhi-web` 的生产真相已经改成镜像构建 + `/start.sh` 启动。\n- `xiaozhi-esp32-server` 的后台与 runtime 侧已经形成 OpenClaw 管理闭环：`manager-web` 具备 channel 设置、setup guide、inventory 同步、统一 Agent 类型化绑定、direct chat 与 clear session；`ma\n...",
       "requirements": "# Requirements: 智能喵喵 / RobotsRun\n\n## Current Milestone\n\n**v0.1 Architecture Baseline**\n\n目标：把根仓从“仅靠人工记忆的集成仓”提升为“有清晰架构真相、可回写 PM/飞书、可继续进入 GSD 阶段规划的工作区”。\n\n## v0.1 Requirements\n\n### Integration Baseline\n\n- [ ] **INTEG-01**：维护者能够从根仓文档快速理解 `xiaozhi-esp32`、`xiaozhi-esp32-server`、`openclaw-xiaozhi` 各自职责与边界。\n- [ ] **INTEG-02**：维护者能够追踪“设备 → 服务端 → OpenClaw Agent”的主链路与对应部署入口。\n- [ ] **INTEG-03**：维护者能够识别 `deploy/` 在生产拓扑中的作用，而不是把它视为普通附属脚本目录。\n\n### Planning & Working Memory\n\n- [ ] **PLAN-01**：根仓存在 `.planning/PROJECT.md`、`.planning/ROADMAP.md`、`.planning/STATE.md`，并可作为后续 GSD 工作流输入。\n- [ ] **PLAN-02**：当前阶段、下一步建议、主要风险点能够从 `STATE.md` 直接读取。\n\n### PM / Documentation Sync\n\n- [ ] **DOC-01**：本次 brownfield 初始化结果能够同步到飞书 `PROJECT` 与 `STATE` 文档。\n- [ ] **DOC-02**：T1 任务在执行过程中能收到阶段性进度回推，而不是只在结束时补结果。\n\n### Admin Surface\n\n- [ ] **ADM-01**：管理前端可查看并操作 OpenClaw 相关关键能力，而不是只停留在后台或部署侧配置。\n- [ ] **ADM-02**：明确 `manager-web` 与 `manager-mobile` 在 OpenClaw 控制、MCP 暴露和调试能力上的边界，至少 Web 端具备完整控制面。\n- [ ] **ADM-03**：后台模型需要以统一 `Agent` 作为顶层业务对象，并通过 `agent_type = native | openclaw` 区分实现来源，而不是把 OpenClaw 作为平行的第二套智能体管理流。\n- [ ] **ADM-04**：管理前端需要复用统一 Agent 创建/编辑流程，共享名称、音色等公共配置，并按类型动态展示专属字段；`openclaw` 类型不应暴露本地 prompt 编辑心智，其 runtime/account/agent 选择应来自已绑定的 OpenClaw channel，而不是手工输入。\n\n### Deployment Truth\n\n- [ ] **OPS-WEB-01**：`xiaozhi-web` 生产部署必须以镜像内 `/start.sh` 为单一启动真相，不再依赖 PVC hotfix 覆盖旧 jar。\n- [ ] **OPS-WEB-02**：当 `manager-api/**`、`manager-web/**`、`docs/docker/start.sh` 等后台管理面相关路径变更时，生产部署应自动重新构建并 rollout。\n\n## Deferred / Next Milestone\n\n- [ ] **OPS-01**：建立根仓级别的集成验证清单或 smoke 流程，覆盖 deploy overlay 与桥接路径。\n- [ ] **OPS-02**：建立 submodule revision\n...",
       "roadmap": "# Roadmap: 智能喵喵 / RobotsRun\n\n## Overview\n\n这是一个 brownfield 集成工作区，路线图先解决架构可见性、集成契约和验证基线，再进入更高风险的桥接强化与设备回归工作。到 2026-04-08 为止，Phase 2 / 02.1 已完成；Phase 3 虽然已有交付，但 production smoke 暴露出连通性与信息架构问题，因此追加一轮收口计划后才进入设备侧回归。\n\n## Phases\n\n**Phase Numbering:**\n- 整数 phase 表示主线治理阶段\n- 如后续出现高优先级插单，可在整数之间插入小数 phase\n\n- [ ] **Phase 1: Integration Baseline & Docs** - 固化根仓架构真相、GSD 资产和 PM/飞书同步机制\n- [x] **Phase 2: Deploy & Bridge Contract Hardening** - 校准 deploy overlay、OpenClaw bridge、运行时入口的一致性\n- [x] **Phase 02.1: Agent 统一模型与 OpenClaw 类型化重定义** - 先定义统一 Agent 模型、`native/openclaw` 类型分流与后台映射关系，再进入前端实现\n- [ ] **Phase 3: Agent Admin Surface Alignment** - 基于统一 Agent 模型，把 OpenClaw 类型智能体收敛进现有前端管理流，并厘清 Web / Mobile 分工\n- [ ] **Phase 4: Device Onboarding & OTA Validation** - 回到设备端，验证固件接入、OTA 与协议链路的闭环\n\n## Phase Details\n\n### Phase 1: Integration Baseline & Docs\n**Goal**: 根仓具备可复用的架构真相文档、GSD 核心资产与 PM/飞书同步基线\n**Depends on**: Nothing (first phase)\n**Requirements**: [INTEG-01, INTEG-03, PLAN-01, PLAN-02, DOC-01, DOC-02, OPS-03]\n**Success Criteria** (what must be TRUE):\n  1. 维护者能从 `.planning/` 读懂根仓为何存在、三子仓如何协作、`deploy/` 扮演什么角色\n  2. `PROJECT` 与 `STATE` 已同步到飞书，T1 留下阶段性回推记录\n  3. 后续 GSD 工作流能以这些文档为输入继续规划\n**Plans**: 3 plans\n\nPlans:\n- [x] 01-01: 完成 brownfield map-codebase 文档与 `.planning` 核心资产初始化\n- [ ] 01-02: 补根仓 README / 维护者入口说明（可在本 phase 内择机完成）\n\n### Phase 2: Deploy & Bridge Contract Hardening\n**Goal**: 明确 deploy overlay、服务端桥接接口和 OpenClaw 插件的契约，降低版本漂移风险\n**Depends on**: Phase 1\n**Requirements**: [INTEG-02, OPS-01, OPS-02]\n**Success Criteria** (what must be TRUE):\n  1. `/xiaozhi/v1/`、`/xiaozhi/ota/`、`/openclaw/bridge/ws`、`/admin/ope\n...",
-      "state": "# Project State\n\n## Project Reference\n\nSee: `.planning/PROJECT.md` (updated 2026-04-08)\n\n**Core value:** 在不破坏各子仓独立演进的前提下，持续保持“设备 → 服务端 → OpenClaw Agent”集成链路可理解、可部署、可验证。\n**Current focus:** reopen Phase 3 for production connectivity recovery and Channel-first IA correction before Phase 4 device validation\n\n## Current Position\n\nCurrent Phase: 3\nCurrent Phase Name: Agent Admin Surface Alignment\nTotal Phases: 5\nCurrent Plan: `03-03` production connectivity recovery + Channel-first IA correction\nTotal Plans in Phase: 3\nStatus: 02-01 / 02-02 / 02.1-01 / 03-01 / 03-02 已落地，但 03 production smoke 失败，现追加 03-03 修复真实链路与信息架构\nLast Activity: 2026-04-08 — reopened Phase 3 after production smoke exposed browser-direct runtime access\nLast Activity Description: 已确认 `OpenClawManagement.vue` 仍由浏览器直连 runtime `baseUrl` 拉 inventory，导致公网环境无法访问集群内网 `xiaozhi-server`；当前计划先收回 manager-api 代理，再围绕 Channel -> inventory -> binding -> debug 重构页面\nProgress: 78%\n\n## Performance Metrics\n\n**Velocity:**\n- Total plans completed: 5\n- Average duration: -\n- Total execution time: -\n\n**By Phase:**\n\n| Phase | Plans | Total | Avg/Plan |\n|-------|-------|-------|----------|\n| 1 | 0 | - | - |\n| 2 | 2 | - | - |\n| 02.1 | 1 | - | - |\n| 3 | 3 | - | - |\n\n**Recent Trend:**\n- Last 5 plans: 02-02 completed, 02.1-01 completed, 03-01 completed, 03-02 completed, 03-03 opened\n- Trend: OpenClaw 管理面进入“交付后回收真实 smoke 缺口”阶段，先修 production connectivity 和 operator flow，再进入设备侧回归\n\n## Decisions Made\n\n| Phase | Summary | Rationale |\n|-------|---------|-----------|\n| 1 | 根仓保持集成工作区定位 | 保留 submodule 边界，避免在初始化任务中越界修改子仓 |\n| 1 | 将 `deploy/` 视为一等模块边界 | 实际生\n..."
+      "state": "# Project State\n\n## Project Reference\n\nSee: `.planning/PROJECT.md` (updated 2026-04-08)\n\n**Core value:** 在不破坏各子仓独立演进的前提下，持续保持“设备 → 服务端 → OpenClaw Agent”集成链路可理解、可部署、可验证。\n**Current focus:** reopen Phase 3 for production connectivity recovery and Channel-first IA correction before Phase 4 device validation\n\n## Current Position\n\nCurrent Phase: 3\nCurrent Phase Name: Agent Admin Surface Alignment\nTotal Phases: 5\nCurrent Plan: `03-03` channel-first workbench replan with refreshed discuss context\nTotal Plans in Phase: 3\nStatus: 02-01 / 02-02 / 02.1-01 / 03-01 / 03-02 已落地，但 03 production smoke 失败，现追加 03-03 修复真实链路与信息架构\nLast Activity: 2026-04-08 — refreshed Phase 3 context and rewrote 03-03 execute plan\nLast Activity Description: 已将最新用户决策写入 GSD 文档：`/openclaw-management` 改为 Channel 卡片首页 + Channel 详情，详情默认看 OpenClaw Agent 列表与折叠业务绑定，调试弹窗改为简洁大弹窗，运行时语音打断从本页主流程移除\nProgress: 78%\n\n## Performance Metrics\n\n**Velocity:**\n- Total plans completed: 5\n- Average duration: -\n- Total execution time: -\n\n**By Phase:**\n\n| Phase | Plans | Total | Avg/Plan |\n|-------|-------|-------|----------|\n| 1 | 0 | - | - |\n| 2 | 2 | - | - |\n| 02.1 | 1 | - | - |\n| 3 | 3 | - | - |\n\n**Recent Trend:**\n- Last 5 plans: 02-02 completed, 02.1-01 completed, 03-01 completed, 03-02 completed, 03-03 opened\n- Trend: OpenClaw 管理面进入“交付后回收真实 smoke 缺口”阶段，先修 production connectivity 和 operator flow，再进入设备侧回归\n\n## Decisions Made\n\n| Phase | Summary | Rationale |\n|-------|---------|-----------|\n| 1 | 根仓保持集成工作区定位 | 保留 submodule 边界，避免在初始化任务中越界修改子仓 |\n| 1 | 将 `deploy/` 视为一等模块边界 | 实际生产拓扑由 Sealos 清单与 hotfix 覆盖共同决定 |\n| 1 | 本次初始化仅写 `.planning/` 与 PM/飞\n..."
     }
   },
   "open_tasks": [
@@ -123,13 +123,13 @@
     "created_at": ""
   },
   "current_task": {
-    "task_id": "T3",
-    "summary": "[T3] 修复 openclaw-xiaozhi CLI 安装后配置损坏",
+    "task_id": "T2",
+    "summary": "[T2] 重定义 OpenClaw Agent 管理台与绑定控制台",
     "status": "todo",
-    "guid": "fbfe75a1-09c7-49e9-af04-b418a5804b74",
-    "url": "https://applink.feishu.cn/client/todo/detail?guid=fbfe75a1-09c7-49e9-af04-b418a5804b74&suite_entity_num=t100170",
-    "description": "任务编号：T3\n创建时间：2026-04-08 18:50:52 CST\n类型：task\nRepo：/Users/galaxyxieyu/ensoai/repos/github/GalaxyXieyu/RobotsRun\n\n需求：\n修复 @galaxyxieyu/openclaw-xiaozhi-cli 安装流程：当 OpenClaw 未成功识别 xiaozhi 插件/channel 时，不得继续写入 channels.xiaozhi 和 plugins.allow；需要在 openclaw 主机上通过 SSH 复现并验证 npx 安装命令可以把配置正确安装完成。\n\n执行要求：\n- 以 task/doc 为主，不再依赖本地 task/context/state 文件。\n- 进度默认写评论，验收证据优先回填附件或评论。",
-    "updated_at": "1775648623290",
+    "guid": "148a64c9-a542-48b0-9b8f-4cc22bdb507e",
+    "url": "https://applink.feishu.cn/client/todo/detail?guid=148a64c9-a542-48b0-9b8f-4cc22bdb507e&suite_entity_num=t100159",
+    "description": "任务编号：T2\n创建时间：2026-04-07 17:13:34 CST\n类型：task\nRepo：/Users/galaxyxieyu/ensoai/repos/github/GalaxyXieyu/RobotsRun\n\n需求：\n当前已实现的 OpenClaw 页面本质是基于 xiaozhi agent 的 MCP 状态聚合页，和真实需求不匹配。真实需求是围绕 OpenClaw runtime 做 agent inventory、绑定/解绑、切换、连接状态、工具清单与后续配置链路。需要先做任务登记，并通过 GSD 讨论 phase 重新定义产品目标、后端契约和前端信息架构，避免继续在现有页面上打补丁。\n\n执行要求：\n- 以 task/doc 为主，不再依赖本地 task/context/state 文件。\n- 进度默认写评论，验收证据优先回填附件或评论。",
+    "updated_at": "1775553320861",
     "completed_at": "0",
     "attachments": [],
     "tasklists": [
@@ -141,42 +141,138 @@
   },
   "recent_comments": [
     {
-      "content": "已完成 npm 发布：@galaxyxieyu/xiaozhi 已发布到 0.1.13，@galaxyxieyu/openclaw-xiaozhi-cli 已执行发布并返回成功日志。发版内容包含安装器防脏写修复、plugin 识别校验、stale xiaozhi 配置清理、原子写入 channels.xiaozhi。远端 openclaw@192.168.10.189 也已恢复 xiaozhi 插件并重启 gateway，doctor 输出恢复到 Xiaozhi: configured。当前待确认点仅剩 npm registry 对 CLI 版本查询是否存在短暂缓存延迟。",
-      "created_at": "1775649473000",
+      "content": "已完成本轮 GSD 文档刷新并同步到飞书。更新内容：1) `.planning/PROJECT.md`、`REQUIREMENTS.md`、`ROADMAP.md`、`STATE.md` 已对齐当前真实状态；2) 明确 `xiaozhi-web` 生产部署已切为镜像内 `/start.sh` + `/app/xiaozhi-esp32-api.jar`，不再把 PVC hotfix override 当作后台管理面的当前真相；3) `ROADMAP` / `STATE` 已把 Phase 2、02.1、3 的已交付情况拨正；4) 补充记录 OpenClaw binding 持久化修复（3175c7b / 3c9b4f2 / 4f250b8）和 workflow 触发路径修正；5) `DEPLOY_OPENCLAW_RUNTIME_CONTRACT.md`、`INTEGRATIONS.md`、`CONCERNS.md` 已区分 `xiaozhi-server` overlay 风险与 `xiaozhi-web` 镜像部署真相。飞书四份 GSD 文档已 overwrite 同步成功。",
+      "created_at": "1775625671000",
       "creator": {
         "id": "ou_48f5cfd849bd8c34385e9d915c47275a",
         "type": "user"
       },
-      "id": "7626356417755761871",
-      "resource_id": "fbfe75a1-09c7-49e9-af04-b418a5804b74",
+      "id": "7626254187382361309",
+      "resource_id": "148a64c9-a542-48b0-9b8f-4cc22bdb507e",
       "resource_type": "task",
-      "updated_at": "1775649473000"
+      "updated_at": "1775625671000"
     },
     {
-      "content": "已完成 openclaw-xiaozhi CLI 第一轮修复与验证：1) 安装前自动清理 stale xiaozhi 配置（channels/plugins entries/allow/install 记录）；2) 改为 plugins install --pin + plugins info 校验，不再盲目执行 plugins enable；3) channels.xiaozhi 改为直接原子写入配置文件，避免 CLI config set 在插件未识别时把配置写坏。验证：本地隔离 HOME 下用无效 admin key 复现，确认失败时不会写入 channels.xiaozhi；再用真实 server-url/admin-key 做一次性测试账号安装，确认 bridge token 签发、channels.xiaozhi 写入成功，随后已执行 unbind 回收测试 bridge。阻塞：SSH 到 openclaw 主机在握手阶段被远端关闭，暂无法在那台机器上直接复验。",
-      "created_at": "1775648623000",
+      "content": "已完成 runtime 侧语音打断机器维度控制第一版实现：1）`/admin/openclaw/voice-interrupt` 现支持 `deviceId/sessionId/peerId` 定向查询与更新；2）新增 runtime 本地持久化 store，`persist=true + deviceId` 时会把设备级开关写入 `voice_interrupt_settings.json`，离线设备可先写入、下次连接自动生效；3）新连接建立时会优先应用设备级语音打断覆盖；4）全局开关更新时会跳过已有设备级持久化覆盖的在线连接，避免全局默认值把单机覆盖冲掉；5）补了最小单测 `test_voice_interrupt_runtime.py`，已通过 `python3 -m unittest discover -s ... -p test_voice_interrupt_runtime.py`。当前未动 manager-api / 前端；设备侧本地 wake-word 打断策略仍未纳入本次实现。",
+      "created_at": "1775622027000",
       "creator": {
         "id": "ou_48f5cfd849bd8c34385e9d915c47275a",
         "type": "user"
       },
-      "id": "7626352767656807610",
-      "resource_id": "fbfe75a1-09c7-49e9-af04-b418a5804b74",
+      "id": "7626238539776167131",
+      "resource_id": "148a64c9-a542-48b0-9b8f-4cc22bdb507e",
       "resource_type": "task",
-      "updated_at": "1775648623000"
+      "updated_at": "1775622027000"
+    },
+    {
+      "content": "补充了一轮 Phase 2 语音打断契约梳理，重点结论：1）当前 /admin/openclaw/voice-interrupt 对在线设备能立即生效，因为 runtime 会直接改写活跃连接 conn.config；2）当前控制粒度仍是全局在线连接，不是按 deviceId 的单机开关；3）该开关只覆盖 server-side speech interrupt，不等于整机 wake-word/收音总开关；4）如果后续要按机器维度长期生效，需要补 deviceId 级持久化，并在连接初始化时把设备策略注入 conn.config。已落本地文档：.planning/codebase/VOICE_INTERRUPT_CONTROL_CONTRACT.md，并在 .planning/codebase/OPENCLAW_ADMIN_SURFACE.md 增加语义约束，避免后续 UI 把该开关误标成整机语音打断总开关。",
+      "created_at": "1775621470000",
+      "creator": {
+        "id": "ou_48f5cfd849bd8c34385e9d915c47275a",
+        "type": "user"
+      },
+      "id": "7626236147408129242",
+      "resource_id": "148a64c9-a542-48b0-9b8f-4cc22bdb507e",
+      "resource_type": "task",
+      "updated_at": "1775621470000"
+    },
+    {
+      "content": "已补第二轮增强并推送远程。提交：6e5bddf feat: support openclaw session clearing。新增能力：1) manager-api 新增 /openclaw-config/channels/{channelId}/clear-session 代理；2) OpenClaw 调试台支持清空当前调试会话并自动切新 session；3) roleConfig 支持一键清空当前 OpenClaw 绑定（提示用户保存后生效）。验证结果：manager-web npm run build 通过；manager-api 使用 m.daocloud.io/docker.io/library/maven:3.9.9-eclipse-temurin-21 容器执行 mvn -q -DskipTests compile 通过。已推送到 galaxy/main。",
+      "created_at": "1775615065000",
+      "creator": {
+        "id": "ou_48f5cfd849bd8c34385e9d915c47275a",
+        "type": "user"
+      },
+      "id": "7626208637672754365",
+      "resource_id": "148a64c9-a542-48b0-9b8f-4cc22bdb507e",
+      "resource_type": "task",
+      "updated_at": "1775615065000"
+    },
+    {
+      "content": "已补 roleConfig 到 OpenClaw 调试台的带参跳转与自动预选，并完成远程推送。提交：f2f9d6d feat: add openclaw web debug console。已推送到 galaxy/main。验证结果：manager-web npm run build 通过；manager-api 使用 m.daocloud.io/docker.io/library/maven:3.9.9-eclipse-temurin-21 容器执行 mvn -q -DskipTests compile 通过。说明：本次 push 同时带上本地 main 之前积压的 3 个提交（从 832dd03 推到 f2f9d6d）。",
+      "created_at": "1775614553000",
+      "creator": {
+        "id": "ou_48f5cfd849bd8c34385e9d915c47275a",
+        "type": "user"
+      },
+      "id": "7626206438473354444",
+      "resource_id": "148a64c9-a542-48b0-9b8f-4cc22bdb507e",
+      "resource_type": "task",
+      "updated_at": "1775614553000"
+    },
+    {
+      "content": "已补 OpenClaw 后台在线调试 MVP：1) xiaozhi-server 新增 /admin/openclaw/direct-chat，支持不依赖设备直连 OpenClaw bridge 调试；2) manager-api 新增 /openclaw-config/channels/{channelId}/direct-chat 代理，并扩展 inventory 返回 bridges/accountAgents/connectedBridgeCount；3) manager-web 的 OpenClawManagement 页面新增在线调试台，可选择 runtime/account、bridge、OpenClaw agent 后直接发送测试消息。验证结果：Python 语法通过，manager-web npm run build 通过，仅有既有大资源体积 warning；manager-api 本机缺 mvn，容器拉取 maven 镜像时 docker hub EOF，暂未完成 Java 编译验证。",
+      "created_at": "1775613809000",
+      "creator": {
+        "id": "ou_48f5cfd849bd8c34385e9d915c47275a",
+        "type": "user"
+      },
+      "id": "7626203240400555227",
+      "resource_id": "148a64c9-a542-48b0-9b8f-4cc22bdb507e",
+      "resource_type": "task",
+      "updated_at": "1775613809000"
+    },
+    {
+      "content": "开始继续推进 T2 第二阶段实现：本轮准备补齐控制台缺口，优先看连接状态、工具清单、解绑/清空绑定这三类能力，先复用现有 runtime 与 manager-api 能力，避免再造一套抽象。",
+      "created_at": "1775613066000",
+      "creator": {
+        "id": "ou_48f5cfd849bd8c34385e9d915c47275a",
+        "type": "user"
+      },
+      "id": "7626200049273539762",
+      "resource_id": "148a64c9-a542-48b0-9b8f-4cc22bdb507e",
+      "resource_type": "task",
+      "updated_at": "1775613066000"
+    },
+    {
+      "content": "命令式 OpenClaw Channel 接入已落地并完成验证：后端新增 setup-guide 接口并在保存时自动补默认 baseUrl/inventory/token；CLI install 现已支持参数齐全时非交互执行；前端管理页改为保存后生成可复制命令的流程。验证结果：manager-web npm run build 通过，CLI node --check 通过，manager-api 在 Docker Maven 环境下 mvn -DskipTests compile 通过。",
+      "created_at": "1775572998000",
+      "creator": {
+        "id": "ou_48f5cfd849bd8c34385e9d915c47275a",
+        "type": "user"
+      },
+      "id": "7626027958372682977",
+      "resource_id": "148a64c9-a542-48b0-9b8f-4cc22bdb507e",
+      "resource_type": "task",
+      "updated_at": "1775572998000"
+    },
+    {
+      "content": "开始落地命令式 OpenClaw Channel 接入：前端已改为保存后生成安装命令，CLI 正在改为传参直装，接下来补后端 setup guide 与保存默认值逻辑并做编译验证。",
+      "created_at": "1775572331000",
+      "creator": {
+        "id": "ou_48f5cfd849bd8c34385e9d915c47275a",
+        "type": "user"
+      },
+      "id": "7626025096781073589",
+      "resource_id": "148a64c9-a542-48b0-9b8f-4cc22bdb507e",
+      "resource_type": "task",
+      "updated_at": "1775572331000"
+    },
+    {
+      "content": "已补齐 openclaw-xiaozhi 支持链路：1) 回填 xiaozhi-server 缺失的 OpenClaw hotfix 文件（core/openclaw/*、openclaw_admin_handler.py、openclaw_bind_peer_agent.py）；2) app/http/websocket/connection/intent/receiveAudio 已接入 OpenClaw hub、active connection registry、push/chat/switch 流；3) 新增 /admin/openclaw/inventory，并通过 hub.request(xiaozhi.inventory) 从 openclaw-xiaozhi 插件回传 account/agent inventory；4) openclaw-xiaozhi 插件新增 xiaozhi.inventory / xiaozhi.clearPeerSession RPC 支持；5) deploy/refresh-xiaozhi-hotfix.sh 与 deploy/xiaozhi-sealos.yaml 已补上 abortHandle.py、active_connections.py、spoken_text.py，避免刷新 hotfix 时丢文件。校验结果：python3 -m py_compile 通过；openclaw-xiaozhi npm run check 通过。剩余风险：当前环境缺少 mvn，manager-api 未完成本地 Java compile。",
+      "created_at": "1775566771000",
+      "creator": {
+        "id": "ou_48f5cfd849bd8c34385e9d915c47275a",
+        "type": "user"
+      },
+      "id": "7626001217012911332",
+      "resource_id": "148a64c9-a542-48b0-9b8f-4cc22bdb507e",
+      "resource_type": "task",
+      "updated_at": "1775566771000"
     }
   ],
   "gsd_route": {
-    "route": "verify-phase",
-    "reason": "Phase 3 的 PLAN 已全部落地为 SUMMARY，适合做验证或准备进入下一 phase。",
+    "route": "materialize-tasks",
+    "reason": "Phase 3 已有 3 份 PLAN、2 份 SUMMARY，说明计划已就绪但尚未全部执行完成。",
     "project_mode": "brownfield",
     "phase": "3",
     "phase_name": "openclaw-admin-surface-alignment",
     "phase_dir": ".planning/phases/03-openclaw-admin-surface-alignment",
     "context_path": ".planning/phases/03-openclaw-admin-surface-alignment/03-CONTEXT.md",
-    "recommended_gsd_skill": "gsd-verify-work",
-    "recommended_gsd_command": "$gsd-verify-work 3",
-    "recommended_pm_command": "pm route-gsd --repo-root /Users/galaxyxieyu/ensoai/repos/github/GalaxyXieyu/RobotsRun --phase 4",
-    "recommended_mode": "verification",
+    "recommended_gsd_skill": "none",
+    "recommended_gsd_command": "",
+    "recommended_pm_command": "pm materialize-gsd-tasks --repo-root /Users/galaxyxieyu/ensoai/repos/github/GalaxyXieyu/RobotsRun --phase 3",
+    "recommended_mode": "task-execution-via-feishu",
     "runtime": {
       "ready": true,
       "tool_path": "/Users/galaxyxieyu/.codex/get-shit-done/bin/gsd-tools.cjs",
