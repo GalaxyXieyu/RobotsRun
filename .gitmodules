@@ -3,7 +3,7 @@
 	url = https://github.com/78/xiaozhi-esp32.git
 [submodule "xiaozhi-esp32-server"]
 	path = xiaozhi-esp32-server
-	url = https://github.com/xinnan-tech/xiaozhi-esp32-server.git
+	url = https://github.com/GalaxyXieyu/xiaozhi-esp32-server.git
 [submodule "openclaw-xiaozhi"]
 	path = openclaw-xiaozhi
 	url = https://github.com/GalaxyXieyu/openclaw-xiaozhi.git
