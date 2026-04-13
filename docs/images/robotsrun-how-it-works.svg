@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">RobotsRun 是怎么工作的</title>
+  <desc id="desc">A user-facing product flow diagram for RobotsRun: speak to device, configure in admin, OpenClaw agents process, results return in two channels, with a simple deployment path for maintainers.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#64748b"/>
+    </marker>
+    <style>
+      .title { font: 700 36px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #fff; }
+      .subtitle { font: 500 20px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #dbeafe; }
+      .cardTitleBlue { font: 700 28px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #1e3a8a; }
+      .cardBodyBlue { font: 500 22px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #1e3a8a; }
+      .cardTitleGreen { font: 700 28px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #166534; }
+      .cardBodyGreen { font: 500 22px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #166534; }
+      .cardTitlePurple { font: 700 28px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #6d28d9; }
+      .cardBodyPurple { font: 500 22px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #6d28d9; }
+      .cardTitleOrange { font: 700 28px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #9a3412; }
+      .cardBodyOrange { font: 500 22px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #9a3412; }
+      .note { font: 500 24px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #334155; }
+      .rail { font: 700 26px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #92400e; }
+      .badgeDark { font: 700 18px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #fff; }
+      .badgeBlue { font: 700 18px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #1e3a8a; }
+      .badgeGreen { font: 700 18px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #166534; }
+      .badgePurple { font: 700 18px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #6d28d9; }
+      .badgeOrange { font: 700 18px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #9a3412; }
+    </style>
+  </defs>
+  <rect width="1600" height="900" fill="#ffffff"/>
+  <rect x="40" y="28" width="1520" height="92" rx="18" fill="#0f172a"/>
+  <text class="title" x="72" y="66">RobotsRun 是怎么工作的</text>
+  <text class="subtitle" x="72" y="98">首页先看产品主线，不先看内部模块图</text>
+
+  <rect x="680" y="150" width="240" height="44" rx="22" fill="#111827"/>
+  <text class="badgeDark" x="742" y="178">用户视角主线</text>
+
+  <ellipse cx="220" cy="181" rx="54" ry="19" fill="#dbeafe" stroke="#60a5fa" stroke-width="2"/>
+  <text class="badgeBlue" x="202" y="187">说话</text>
+  <ellipse cx="602" cy="181" rx="54" ry="19" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+  <text class="badgeGreen" x="584" y="187">配置</text>
+  <ellipse cx="982" cy="181" rx="54" ry="19" fill="#ede9fe" stroke="#a78bfa" stroke-width="2"/>
+  <text class="badgePurple" x="964" y="187">处理</text>
+  <ellipse cx="1362" cy="181" rx="54" ry="19" fill="#ffedd5" stroke="#fb923c" stroke-width="2"/>
+  <text class="badgeOrange" x="1344" y="187">返回</text>
+
+  <rect x="70" y="210" width="300" height="190" rx="24" fill="#eff6ff" stroke="#60a5fa" stroke-width="3"/>
+  <text class="cardTitleBlue" x="110" y="262">1. 用户对设备说一句话</text>
+  <text class="cardBodyBlue" x="110" y="314">设备负责听、播、打断</text>
+  <text class="cardBodyBlue" x="110" y="348">用户不用理解后台结构</text>
+
+  <rect x="450" y="210" width="300" height="190" rx="24" fill="#ecfeff" stroke="#22c55e" stroke-width="3"/>
+  <text class="cardTitleGreen" x="486" y="262">2. 你在后台选好要接的能力</text>
+  <text class="cardBodyGreen" x="486" y="314">管理台里配 Channel、绑定 Agent</text>
+  <text class="cardBodyGreen" x="486" y="348">也能直接做调试和排障</text>
+
+  <rect x="830" y="210" width="300" height="190" rx="24" fill="#faf5ff" stroke="#a78bfa" stroke-width="3"/>
+  <text class="cardTitlePurple" x="868" y="262">3. OpenClaw 智能体开始处理任务</text>
+  <text class="cardBodyPurple" x="868" y="314">理解请求、调用工具、协作生成结果</text>
+  <text class="cardBodyPurple" x="868" y="348">这里才是内部智能体运行层</text>
+
+  <rect x="1210" y="210" width="300" height="190" rx="24" fill="#fff7ed" stroke="#fb923c" stroke-width="3"/>
+  <text class="cardTitleOrange" x="1262" y="262">4. 结果分两路回来</text>
+  <text class="cardBodyOrange" x="1262" y="314">短结果：设备语音简报</text>
+  <text class="cardBodyOrange" x="1262" y="348">长结果：IM 详细稿 / 群消息</text>
+
+  <line x1="370" y1="305" x2="450" y2="305" stroke="#64748b" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="750" y1="305" x2="830" y2="305" stroke="#64748b" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="1130" y1="305" x2="1210" y2="305" stroke="#64748b" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="280" y="470" width="1040" height="90" rx="20" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+  <text class="note" x="332" y="522">用户能感知到的，就是这 4 步。内部是多仓协作，但对外可以讲成一条简单产品链路。</text>
+
+  <rect x="250" y="640" width="1100" height="100" rx="24" fill="#fef3c7" stroke="#f59e0b" stroke-width="3"/>
+  <text class="rail" x="330" y="680">维护者日常更新方式</text>
+  <text class="rail" x="330" y="720">改对应子仓 -&gt; commit / push -&gt; GitHub Actions 自动发布 -&gt; 线上环境更新</text>
+</svg>

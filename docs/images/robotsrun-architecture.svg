@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="960" viewBox="0 0 1600 960" role="img" aria-labelledby="title desc">
+  <title id="title">RobotsRun Architecture</title>
+  <desc id="desc">A simplified overview of XiaoZhi device entry, server workspace, OpenClaw runtime, and delivery plus deployment in RobotsRun.</desc>
+  <defs>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#64748b"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#2563eb"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#16a34a"/>
+    </marker>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#7c3aed"/>
+    </marker>
+    <marker id="arrow-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#ea580c"/>
+    </marker>
+    <marker id="arrow-gold" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#f59e0b"/>
+    </marker>
+    <style>
+      .title { font: 700 34px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #fff; }
+      .subtitle { font: 500 18px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #dbeafe; }
+      .section { font: 700 24px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #fff; }
+      .h1 { font: 700 24px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #0f172a; }
+      .copy { font: 500 19px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #0f172a; }
+      .copy-blue { font: 500 19px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #1e3a8a; }
+      .copy-cyan { font: 500 19px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #0c4a6e; }
+      .copy-purple { font: 500 19px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #4c1d95; }
+      .copy-orange { font: 500 18px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #9a3412; }
+      .note { font: 700 20px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #166534; }
+      .edge-gray { font: 600 16px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #475569; }
+      .edge-blue { font: 600 16px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #1d4ed8; }
+      .edge-green { font: 600 16px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #15803d; }
+      .edge-purple { font: 600 16px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #6d28d9; }
+      .edge-orange { font: 600 16px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #c2410c; }
+      .edge-gold { font: 600 16px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #b45309; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="960" fill="#ffffff"/>
+  <rect x="40" y="24" width="1520" height="82" rx="18" fill="#0f172a"/>
+  <text class="title" x="72" y="60">RobotsRun Architecture</text>
+  <text class="subtitle" x="72" y="88">把 XiaoZhi 设备、服务端工作区、OpenClaw 运行时和双通道交付收口成一条主链路</text>
+
+  <rect x="40" y="138" width="280" height="610" rx="24" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="60" y="158" width="240" height="44" rx="14" fill="#111827"/>
+  <text class="section" x="86" y="188">1. Device Entry</text>
+
+  <rect x="82" y="244" width="196" height="90" rx="16" fill="#fff" stroke="#94a3b8" stroke-width="2"/>
+  <text class="h1" x="148" y="278">用户</text>
+  <text class="copy" x="116" y="308">语音输入 / 主动打断</text>
+
+  <rect x="82" y="394" width="196" height="170" rx="16" fill="#fff" stroke="#475569" stroke-width="2"/>
+  <text class="h1" x="108" y="430">xiaozhi-esp32</text>
+  <text class="copy" x="108" y="464">设备固件</text>
+  <text class="copy" x="108" y="500">音频采集 / 播放</text>
+  <text class="copy" x="108" y="536">OTA / WebSocket / MQTT</text>
+
+  <rect x="360" y="138" width="500" height="610" rx="24" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
+  <rect x="380" y="158" width="460" height="44" rx="14" fill="#111827"/>
+  <text class="section" x="406" y="188">2. Server Workspace</text>
+
+  <rect x="408" y="232" width="404" height="104" rx="16" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <text class="h1" x="456" y="268">manager-web / manager-mobile</text>
+  <text class="copy-blue" x="456" y="302">Channel 管理 / Agent 绑定 / Debug Workbench</text>
+
+  <rect x="408" y="372" width="404" height="86" rx="16" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <text class="h1" x="534" y="408">manager-api</text>
+  <text class="copy-cyan" x="444" y="440">配置 / inventory / direct chat / clear session 聚合层</text>
+
+  <rect x="408" y="492" width="404" height="94" rx="16" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+  <text class="h1" x="512" y="528">main/xiaozhi-server</text>
+  <text class="copy-blue" x="470" y="562">设备会话 / 语音链路 / OpenClaw admin / bridge hub</text>
+
+  <rect x="534" y="624" width="152" height="70" rx="16" fill="#fff" stroke="#38bdf8" stroke-width="2"/>
+  <text class="h1" x="546" y="656">MySQL / Redis</text>
+  <text class="copy" x="548" y="682">配置与运行态缓存</text>
+
+  <rect x="456" y="770" width="308" height="74" rx="18" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+  <text class="note" x="520" y="806">统一 Agent 模型</text>
+  <text class="copy" x="490" y="832">agentType = native | openclaw</text>
+
+  <rect x="900" y="138" width="420" height="610" rx="24" fill="#faf5ff" stroke="#c4b5fd" stroke-width="2"/>
+  <rect x="920" y="158" width="380" height="44" rx="14" fill="#111827"/>
+  <text class="section" x="946" y="188">3. OpenClaw Runtime</text>
+
+  <rect x="944" y="234" width="332" height="88" rx="16" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="2"/>
+  <text class="h1" x="1006" y="270">openclaw-xiaozhi-cli</text>
+  <text class="copy-purple" x="1012" y="304">issue bridge token / install / enable plugin</text>
+
+  <rect x="944" y="364" width="332" height="90" rx="16" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+  <text class="h1" x="1006" y="400">@galaxyxieyu/xiaozhi plugin</text>
+  <text class="copy-purple" x="976" y="434">xiaozhi.chat / xiaozhi_push_text / xiaozhi_deliver_detail</text>
+
+  <rect x="944" y="494" width="332" height="82" rx="16" fill="#f5f3ff" stroke="#6d28d9" stroke-width="2"/>
+  <text class="h1" x="1024" y="530">OpenClaw Gateway</text>
+  <text class="copy-purple" x="1004" y="560">channel / runtime / peer 路由</text>
+
+  <rect x="944" y="616" width="332" height="72" rx="16" fill="#fff" stroke="#8b5cf6" stroke-width="2"/>
+  <text class="h1" x="1008" y="660">OpenClaw Agents / Subagents</text>
+
+  <rect x="1360" y="138" width="200" height="610" rx="24" fill="#fffbeb" stroke="#fcd34d" stroke-width="2"/>
+  <rect x="1380" y="158" width="160" height="44" rx="14" fill="#111827"/>
+  <text class="section" x="1394" y="188">4. Delivery</text>
+
+  <rect x="1392" y="246" width="136" height="86" rx="16" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text class="note" x="1416" y="282">设备语音简报</text>
+  <text class="copy" x="1426" y="310">播回 XiaoZhi</text>
+
+  <rect x="1392" y="376" width="136" height="92" rx="16" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+  <text class="h1" x="1424" y="412">IM 详细稿</text>
+  <text class="copy-orange" x="1404" y="440">deliveryBinding</text>
+  <text class="copy-orange" x="1420" y="462">outbound</text>
+
+  <rect x="1392" y="522" width="136" height="80" rx="16" fill="#fff" stroke="#f59e0b" stroke-width="2"/>
+  <text class="h1" x="1420" y="556">对应子仓</text>
+  <text class="copy-orange" x="1420" y="584">commit / push</text>
+
+  <rect x="1392" y="634" width="136" height="80" rx="16" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <text class="h1" x="1412" y="668">GitHub Actions</text>
+  <text class="copy-orange" x="1414" y="696">唯一发布入口</text>
+
+  <rect x="1392" y="746" width="136" height="62" rx="16" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+  <text class="h1" x="1414" y="784">Sealos Runtime</text>
+
+  <line x1="180" y1="334" x2="180" y2="394" stroke="#64748b" stroke-width="3" marker-end="url(#arrow-gray)"/>
+  <text class="edge-gray" x="122" y="368">1. 语音输入</text>
+
+  <path d="M278 478 L408 478" stroke="#2563eb" stroke-width="4" fill="none" marker-end="url(#arrow-blue)"/>
+  <text class="edge-blue" x="292" y="466">2. /xiaozhi/v1/</text>
+
+  <line x1="610" y1="336" x2="610" y2="372" stroke="#2563eb" stroke-width="3" marker-end="url(#arrow-blue)"/>
+  <text class="edge-blue" x="500" y="358">Web / Mobile 控制面</text>
+
+  <line x1="610" y1="458" x2="610" y2="492" stroke="#2563eb" stroke-width="3" marker-end="url(#arrow-blue)"/>
+  <text class="edge-blue" x="472" y="484">admin / inventory / debug</text>
+
+  <line x1="610" y1="586" x2="610" y2="624" stroke="#0284c7" stroke-width="3" marker-end="url(#arrow-blue)"/>
+  <text class="edge-blue" x="578" y="612">persist</text>
+
+  <path d="M812 540 L944 540" stroke="#7c3aed" stroke-width="4" fill="none" marker-end="url(#arrow-purple)"/>
+  <text class="edge-purple" x="826" y="526">3. /openclaw/bridge/ws</text>
+
+  <line x1="1110" y1="322" x2="1110" y2="364" stroke="#8b5cf6" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#arrow-purple)"/>
+  <text class="edge-purple" x="1038" y="348">安装 / 启用</text>
+
+  <line x1="1110" y1="454" x2="1110" y2="494" stroke="#7c3aed" stroke-width="3" marker-end="url(#arrow-purple)"/>
+  <text class="edge-purple" x="1086" y="480">route</text>
+
+  <line x1="1110" y1="576" x2="1110" y2="616" stroke="#7c3aed" stroke-width="3" marker-end="url(#arrow-purple)"/>
+  <text class="edge-purple" x="1078" y="602">invoke</text>
+
+  <path d="M812 520 L1364 289" stroke="#16a34a" stroke-width="4" fill="none" marker-end="url(#arrow-green)"/>
+  <text class="edge-green" x="1144" y="396">4. 语音简报</text>
+
+  <path d="M1276 410 L1392 422" stroke="#ea580c" stroke-width="4" fill="none" marker-end="url(#arrow-orange)"/>
+  <text class="edge-orange" x="1288" y="392">4. IM 详细稿</text>
+
+  <line x1="1460" y1="602" x2="1460" y2="634" stroke="#f59e0b" stroke-width="4" marker-end="url(#arrow-gold)"/>
+  <text class="edge-gold" x="1428" y="622">5. deploy</text>
+
+  <line x1="1460" y1="714" x2="1460" y2="746" stroke="#ea580c" stroke-width="4" marker-end="url(#arrow-orange)"/>
+</svg>
